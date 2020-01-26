@@ -4,6 +4,12 @@ import { User, UserInterface } from '@models/user.model';
 import { UpdateOptions, DestroyOptions } from 'sequelize';
 
 export class UserController {
+  /**
+   * @method GET
+   * @route /users
+   * @acces private
+   * @async
+   */
   public async index(_req: Request, res: Response) {
     const users: Array<User> = await User.findAll<User>({
       attributes: {
@@ -14,6 +20,12 @@ export class UserController {
     res.status(200).json(users);
   }
 
+  /**
+   * @method GET
+   * @argsPath id: Number
+   * @route /users/:id
+   * @acces private
+   */
   public async show(req: Request, res: Response) {
     const userId: number = parseInt(req.params.id, 10);
 
@@ -29,7 +41,13 @@ export class UserController {
 
     return res.json(user);
   }
-
+  /**
+   * @method POST
+   * @params [[UserSaveInterface]]: JSON
+   * @route /users
+   * @acces public
+   * @async
+   */
   public async store(req: Request, res: Response) {
     const params: UserInterface = req.body;
     params.passwordHash = bcrypt.hashSync(params.password, 8);
@@ -39,6 +57,12 @@ export class UserController {
     return res.status(200).json({ messsage: 'User update with success', data: user });
   }
 
+  /**
+   * @method PUT
+   * @params [[UserSaveInterface]]: JSON
+   * @route /users
+   * @acces private
+   */
   public async update(req: Request, res: Response) {
     const userId: number = parseInt(req.params.id, 10);
     const params: UserInterface = req.body;
@@ -62,6 +86,12 @@ export class UserController {
     return res.status(200).json({ messsage: 'User update with success', data: user });
   }
 
+  /**
+   * @method DELETE
+   * @argsPath id: Number
+   * @route /users/:id
+   * @acces private
+   */
   public async delete(req: Request, res: Response) {
     const userId: number = parseInt(req.params.id, 10);
 

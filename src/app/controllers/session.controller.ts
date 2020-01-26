@@ -5,6 +5,13 @@ import '@config/env';
 import jwt from 'jsonwebtoken';
 
 export class SessionController {
+  /**
+   * @method POST
+   * @params JSON [[AuthInterface]]
+   * @route /login
+   * @acces public
+   * @async
+   */
   public async login(req: Request, res: Response) {
     const { password, email }: AuthInterface = req.body;
 

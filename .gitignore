@@ -5,3 +5,4 @@ yarn.lock
 database.sqlite
 src/app/tests/coverage
 package-lock.json
+docs
