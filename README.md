@@ -18,12 +18,26 @@ $ cp .env-example .env
 
 ## 3. Edit the .env file with the correct information
 
-## 4. Execute the project
+## 4. Execute the test
+```
+
+$ yarn test
+
+``` 
+
+## 5. Execute the project
+
 ```
 
 $ yarn dev 
 
+``` 
+
+## 6. Open new terminal, execute this command to open documentation
+
 ```
 
-### Project use the packages [commitizen](https://github.com/commitizen/cz-cli) and [commitlint](https://github.com/conventional-changelog/commitlint) to git commit 
+$ yarn docs 
+
+```
 
