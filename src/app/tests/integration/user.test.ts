@@ -67,12 +67,12 @@ describe('Users', () => {
     expect(response.status).toBe(404);
   });
 
-  it('should list Users', async () => {
+  it("should don't list Users", async () => {
     const response = await request(app)
       .get('/users')
       .set(
         'auth',
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzksImlhdCI6MTU4MDA1NjM0Mn0.LV4Zc6bb6SsMNawBxL9j6toHoSplCSGKPJWobm4nZO4'
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
       )
       .send();
     expect(response.status).toBe(401);
