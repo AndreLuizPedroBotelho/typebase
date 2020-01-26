@@ -15,6 +15,8 @@ describe('Users', () => {
   });
 
   it('should create User', async () => {
+    user.email = faker.internet.email();
+
     const response = await request(app)
       .post('/users')
       .send(user);
