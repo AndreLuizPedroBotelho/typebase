@@ -1,4 +1,4 @@
-import { UserSaveInterface } from '../../src/app/models/user.model';
+import { UserSaveInterface } from '@models/user.model';
 import faker from 'faker';
 
 export const user: UserSaveInterface = {

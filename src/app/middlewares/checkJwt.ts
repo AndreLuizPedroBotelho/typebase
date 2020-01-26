@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { User } from '../models/user.model';
-import '../config/env';
+import { User } from '@models/user.model';
+import '@config/env';
 
 export const checkJwt = async (req: Request, res: Response, next: NextFunction) => {
   try {

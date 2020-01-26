@@ -7,7 +7,7 @@ export const configDatabase = new Sequelize({
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
   host: process.env.DB_HOST,
-  storage: './__tests__/database.sqlite',
+  storage: './database.sqlite',
   dialect: process.env.NODE_ENV === 'test' ? 'sqlite' : 'postgres',
   port: 5432,
   logging: false,

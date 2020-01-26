@@ -1,6 +1,7 @@
 import { Model, DataTypes } from 'sequelize';
 import bcrypt from 'bcryptjs';
-import { configDatabase } from '../../config/database';
+import { configDatabase } from '@config/database';
+import jwt from 'jsonwebtoken';
 
 export class User extends Model {
   public id: number;
@@ -16,6 +17,10 @@ export class User extends Model {
   public readonly createdAt: Date;
 
   public readonly updatedAt: Date;
+
+  public checkPassword?: any;
+
+  public generateToken?: any;
 }
 
 export interface UserInterface {
@@ -80,3 +85,11 @@ User.addHook('beforeSave', async (user: User) => {
     user.passwordHash = await bcrypt.hash(user.password, 8);
   }
 });
+
+User.prototype.checkPassword = function(password) {
+  return bcrypt.compare(password, this.passwordHash);
+};
+
+User.prototype.generateToken = function() {
+  return jwt.sign({ id: this.id }, process.env.JWT_SECRET);
+};

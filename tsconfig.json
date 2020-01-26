@@ -9,7 +9,27 @@
     "target": "es6",
     "outDir": "./dist",
     "baseUrl": "./src",
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "paths": {
+      "@models/*": [
+        "app/models/*"
+      ],
+      "@controllers/*": [
+        "app/controllers/*"
+      ],
+      "@validations/*": [
+        "app/validations/*"
+      ],
+      "@config/*": [
+        "config/*"
+      ],
+      "@utils/*": [
+        "app/utils/*"
+      ],
+      "@middlewares/*": [
+        "app/middlewares/*"
+      ]
+    }
   },
   "include": [
     "src/**/*",
