@@ -19,7 +19,7 @@ describe('Users', () => {
       .post('/users')
       .send(user);
     newUser = response.body.data;
-    expect(response.status).toBe(200);
+    expect(response.status).toBe(200)
   });
 
   it("should don't create User ", async () => {
