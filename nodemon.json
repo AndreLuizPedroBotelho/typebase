@@ -1,10 +1,8 @@
 {
-  "execMap": {
-    "js": "node -r ts-node/register"
-  },
   "watch": [
     "src/",
     ".env"
   ],
-  "ext": "ts, css"
+  "ext": ".ts, .css",
+  "exec": "node -r tsconfig-paths/register -r ts-node/register"
 }
